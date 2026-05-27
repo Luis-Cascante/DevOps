@@ -41,10 +41,10 @@ pipeline {
         // ── 2. Instalar dependencias ──────────────────────────────
         stage('Install') {
             steps {
-                sh 'node --version'
-                sh 'npm --version'
+                bat 'node --version'
+                bat 'npm --version'
                 // `ci` usa package-lock.json para instalación reproducible
-                sh 'npm ci'
+                bat 'npm ci'
             }
         }
 
@@ -52,13 +52,13 @@ pipeline {
         stage('Test') {
             steps {
                 // Crea el directorio de resultados si no existe
-                sh 'mkdir -p test-results'
+                bat 'mkdir -p test-results'
 
                 // Ejecuta Jest en modo CI:
                 //   --ci          → falla si hay snapshots sin actualizar
                 //   --coverage    → genera informe de cobertura
                 //   --forceExit   → evita que Jest quede colgado en CI
-                sh 'npm run test:ci'
+                bat 'npm run test:ci'
             }
             post {
                 always {

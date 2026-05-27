@@ -44,7 +44,7 @@ pipeline {
                 bat 'node --version'
                 bat 'npm --version'
                 // `ci` usa package-lock.json para instalación reproducible
-                bat 'npm ci'
+                bat 'npm install'
             }
         }
 

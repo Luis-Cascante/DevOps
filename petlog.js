@@ -20,6 +20,7 @@ function campoVacio() {
     edad:     '',
     color:    '',
     alimento: '',
+    peso:     '',
   }
 }
 
